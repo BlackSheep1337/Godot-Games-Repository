@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj68qxm1cgutr"]
+
+[ext_resource type="PackedScene" uid="uid://xqayhlyp1vha" path="res://ground/ground.tscn" id="1_hjabb"]
+[ext_resource type="PackedScene" uid="uid://c6dbimsust2vn" path="res://artemis/artemis.tscn" id="2_uvk7v"]
+[ext_resource type="PackedScene" uid="uid://ds34qf5a0nb4k" path="res://moon_rock/moon_rock.tscn" id="3_okfcp"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_hjabb")]
+position = Vector2(576, 620)
+
+[node name="Ground2" parent="." instance=ExtResource("1_hjabb")]
+position = Vector2(1712, 616)
+
+[node name="Ground3" parent="." instance=ExtResource("1_hjabb")]
+position = Vector2(2852, 616)
+
+[node name="Ground4" parent="." instance=ExtResource("1_hjabb")]
+position = Vector2(3996, 616)
+
+[node name="Ground5" parent="." instance=ExtResource("1_hjabb")]
+position = Vector2(5140, 612)
+
+[node name="Artemis" parent="." instance=ExtResource("2_uvk7v")]
+position = Vector2(128, 452)
+
+[node name="MoonRock" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(448, 400)
+
+[node name="MoonRock2" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(640, 332)
+
+[node name="MoonRock3" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(848, 312)
+
+[node name="MoonRock4" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(996, 456)
+
+[node name="MoonRock5" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(1228, 384)
+
+[node name="MoonRock6" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(1408, 468)
+
+[node name="MoonRock7" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(1624, 364)
+
+[node name="MoonRock8" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(1724, 440)
+
+[node name="MoonRock9" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(1977, 383)
+
+[node name="MoonRock10" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(2234, 419)
+
+[node name="MoonRock11" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(3078, 364)
+
+[node name="MoonRock12" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(3270, 296)
+
+[node name="MoonRock13" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(3478, 276)
+
+[node name="MoonRock14" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(3626, 420)
+
+[node name="MoonRock15" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(3858, 348)
+
+[node name="MoonRock16" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(4038, 432)
+
+[node name="MoonRock17" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(4254, 328)
+
+[node name="MoonRock18" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(4354, 404)
+
+[node name="MoonRock19" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(4607, 347)
+
+[node name="MoonRock20" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(4864, 383)
+
+[node name="MoonRock21" parent="." instance=ExtResource("3_okfcp")]
+position = Vector2(5413, 397)
