@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbvpv13falp7p"]
+
+[ext_resource type="Texture2D" uid="uid://bvs6noit61a0d" path="res://enemies/Explode/Sprite-explode.png" id="1_r56m5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siynn"]
+atlas = ExtResource("1_r56m5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eohu"]
+atlas = ExtResource("1_r56m5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30dfv"]
+atlas = ExtResource("1_r56m5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76oki"]
+atlas = ExtResource("1_r56m5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xkuo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siynn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eohu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30dfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76oki")
+}],
+"loop": false,
+"name": &"Explode",
+"speed": 8.0
+}]
+
+[node name="ExplodeAnimation" type="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(-1, -17)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8xkuo")
+animation = &"Explode"
+autoplay = "Explode"
+frame = 1
+frame_progress = 0.935533

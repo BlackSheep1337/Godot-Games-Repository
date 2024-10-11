@@ -1,0 +1,135 @@
+[gd_scene load_steps=17 format=3 uid="uid://26l4bwus3cxn"]
+
+[ext_resource type="Script" path="res://enemies/Boss/boss.gd" id="1_ayo8o"]
+[ext_resource type="Texture2D" uid="uid://fidlwtlv3lly" path="res://enemies/Boss/Sprite-Boss01.png" id="1_m1s28"]
+[ext_resource type="AudioStream" uid="uid://desyilhw7kr2l" path="res://Enchant Jam Song 02 - Sibilar by Dan Freitas.mp3" id="3_s7v1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qax8j"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqld6"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uotaw"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5axbx"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qogy0"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie20o"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj0s1"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35oyo"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80xca"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng8jr"]
+atlas = ExtResource("1_m1s28")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bvv7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qax8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqld6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uotaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5axbx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qogy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie20o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj0s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35oyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80xca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng8jr")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeanj"]
+radius = 250.032
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ee44e"]
+radius = 25.0
+height = 102.0
+
+[node name="Boss" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_ayo8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -16)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_5bvv7")
+animation = &"Run"
+autoplay = "Idle"
+frame_progress = 0.496779
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -12.5)
+scale = Vector2(1, 1.15)
+
+[node name="detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="detectionCollisionShape" type="CollisionShape2D" parent="detection"]
+shape = SubResource("CircleShape2D_yeanj")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="hitbox" type="Area2D" parent="." groups=["hitbox"]]
+collision_layer = 8
+collision_mask = 5
+
+[node name="hitboxCollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-2, -10)
+shape = SubResource("CapsuleShape2D_ee44e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s7v1y")
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

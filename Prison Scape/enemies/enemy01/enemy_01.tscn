@@ -1,0 +1,149 @@
+[gd_scene load_steps=18 format=3 uid="uid://dj4i7rtnwn7vl"]
+
+[ext_resource type="Script" path="res://enemies/enemy01/enemy_01.gd" id="1_2ms88"]
+[ext_resource type="Texture2D" uid="uid://rf0hd2mjppri" path="res://enemies/enemy01/Sprite-enemy01.png" id="1_tmvh4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw8eq"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk1b5"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgxq"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u365b"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_536sc"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uscqu"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ed5r"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtokt"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgxov"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52kxn"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th1ab"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fccxa"]
+atlas = ExtResource("1_tmvh4")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f11av"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw8eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk1b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u365b")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_536sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uscqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ed5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtokt")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgxov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52kxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th1ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fccxa")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeanj"]
+radius = 136.624
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ee44e"]
+radius = 25.0
+height = 102.0
+
+[node name="Enemy01" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_2ms88")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_f11av")
+animation = &"Hurt"
+autoplay = "Idle"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -12.5)
+scale = Vector2(1, 1.15)
+
+[node name="detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="detectionCollisionShape" type="CollisionShape2D" parent="detection"]
+shape = SubResource("CircleShape2D_yeanj")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="hitbox" type="Area2D" parent="." groups=["hitbox"]]
+collision_layer = 8
+collision_mask = 5
+
+[node name="hitboxCollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1, -6)
+shape = SubResource("CapsuleShape2D_ee44e")
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

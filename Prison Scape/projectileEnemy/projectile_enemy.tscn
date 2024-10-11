@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds5aejdrjccw2"]
+
+[ext_resource type="Script" path="res://projectileEnemy/projectile_enemy.gd" id="1_doask"]
+[ext_resource type="Texture2D" uid="uid://cwgxtsgooitec" path="res://projectileEnemy/Sprite-projectileEnemy.png" id="1_ueubq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42bsw"]
+size = Vector2(5, 3)
+
+[node name="projectileEnemy" type="Area2D"]
+script = ExtResource("1_doask")
+
+[node name="Sprite-projectileEnemy" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ueubq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_42bsw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,150 @@
+[gd_scene load_steps=18 format=3 uid="uid://bmkkb5be53k3m"]
+
+[ext_resource type="Script" path="res://enemies/enemy02/enemy_02.gd" id="1_6n5no"]
+[ext_resource type="Texture2D" uid="uid://buewcgeeg5f8d" path="res://enemies/enemy02/Sprite-enemy02.png" id="2_hmlic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xdho"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7o0w"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te16a"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8ae5"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44sk7"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cgss"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l581"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iekr2"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m7w3"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sahb"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l86hy"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arcve"]
+atlas = ExtResource("2_hmlic")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ej2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xdho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7o0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te16a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8ae5")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44sk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cgss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l581")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iekr2")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0m7w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sahb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l86hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arcve")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeanj"]
+radius = 136.624
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ee44e"]
+radius = 25.0
+height = 102.0
+
+[node name="Enemy02" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_6n5no")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -16)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7ej2r")
+animation = &"Attack"
+autoplay = "Idle"
+frame_progress = 0.906304
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -12.5)
+scale = Vector2(1, 1.15)
+
+[node name="detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="detectionCollisionShape" type="CollisionShape2D" parent="detection"]
+shape = SubResource("CircleShape2D_yeanj")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="hitbox" type="Area2D" parent="." groups=["hitbox"]]
+collision_layer = 8
+collision_mask = 5
+
+[node name="hitboxCollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-2, -10)
+shape = SubResource("CapsuleShape2D_ee44e")
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
