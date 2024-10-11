@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2g73drfjvbwa"]
+
+[ext_resource type="Script" path="res://App/scene/game.gd" id="1_3pq40"]
+[ext_resource type="PackedScene" uid="uid://d34vb4fb8n1s" path="res://App/player/player.tscn" id="2_jirpi"]
+[ext_resource type="PackedScene" uid="uid://tvj7oq0hud3t" path="res://App/paper_ball_spawner/paper_ball_spawner.tscn" id="3_fbjbo"]
+[ext_resource type="PackedScene" uid="uid://8vuni3aqc2h" path="res://App/screen_limit_holder/screen_limit_holder.tscn" id="4_g84ra"]
+[ext_resource type="PackedScene" uid="uid://c1kdv6v0glgxs" path="res://App/ui/ui.tscn" id="5_713hq"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3pq40")
+
+[node name="Player" parent="." instance=ExtResource("2_jirpi")]
+position = Vector2(262, 546)
+
+[node name="paper_ball_spawner" parent="." instance=ExtResource("3_fbjbo")]
+position = Vector2(-2, 3)
+start_time = null
+end_time = null
+
+[node name="Screen_Limit_Holder" parent="." instance=ExtResource("4_g84ra")]
+position = Vector2(1, 1)
+
+[node name="Ui" parent="." instance=ExtResource("5_713hq")]

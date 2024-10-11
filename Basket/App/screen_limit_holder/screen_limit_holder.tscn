@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://8vuni3aqc2h"]
+
+[ext_resource type="PackedScene" uid="uid://cl6sj38ee8o88" path="res://App/screen_limit/screen_limit.tscn" id="1_y4n1y"]
+
+[node name="Screen_Limit_Holder" type="Node2D"]
+
+[node name="ScreenLimit2" parent="." instance=ExtResource("1_y4n1y")]
+position = Vector2(1008, -2)
+collision_layer = 4
+
+[node name="ScreenLimit" parent="." instance=ExtResource("1_y4n1y")]
+position = Vector2(-1, 4)
+collision_layer = 4

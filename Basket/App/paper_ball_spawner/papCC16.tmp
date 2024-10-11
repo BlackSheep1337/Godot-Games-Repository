@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://tvj7oq0hud3t"]
+
+[ext_resource type="Script" path="res://paper_ball_spawner.gd" id="1_es10w"]
+
+[node name="paper_ball_spawner" type="Node2D"]
+script = ExtResource("1_es10w")
+
+[node name="spawner" type="Marker2D" parent="."]
+position = Vector2(200, 0)
+
+[node name="spawner2" type="Marker2D" parent="."]
+position = Vector2(400, 0)
+
+[node name="spawner3" type="Marker2D" parent="."]
+position = Vector2(600, 0)
+
+[node name="spawner4" type="Marker2D" parent="."]
+position = Vector2(800, -4)

@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1kdv6v0glgxs"]
+
+[ext_resource type="Script" path="res://App/ui/ui.gd" id="1_8ifl8"]
+[ext_resource type="LabelSettings" uid="uid://cjey6morg04kr" path="res://App/fonts/new_label_settings.tres" id="2_8gaas"]
+[ext_resource type="Texture2D" uid="uid://dgqy2pxus500b" path="res://icon.svg" id="2_waode"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my3bl"]
+bg_color = Color(0.0745098, 0.72549, 0.0392157, 1)
+border_color = Color(0.0470588, 0.823529, 0.458824, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.0117647, 0.631373, 0.278431, 0.756863)
+shadow_size = 12
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ifl8")
+
+[node name="countDownTimer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 32.0
+offset_right = 536.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0.831373, 0.392157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.72549, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0.733333, 0.301961, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 22
+text = "999
+"
+label_settings = ExtResource("2_8gaas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(780, 52)
+
+[node name="ScoreLabel" type="Label" parent="Node"]
+offset_left = 53.0
+offset_top = -15.0
+offset_right = 109.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0.890196, 0.423529, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.72549, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0.733333, 0.301961, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 22
+text = ": 999
+"
+label_settings = ExtResource("2_8gaas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Node"]
+position = Vector2(25, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_waode")
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 410.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0, 0.384314, 0.301961, 1)
+theme_override_colors/font_outline_color = Color(0, 0.341176, 0.215686, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/background = SubResource("StyleBoxFlat_my3bl")
+max_value = 200.0
