@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvns1ic2wcmml"]
+
+[ext_resource type="FontFile" uid="uid://ba3fvdtnny5wr" path="res://assets/font/Kenney Blocks.ttf" id="1_ntpom"]
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_nu6nr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0038j"]
+bg_color = Color(0.701961, 0, 0, 0.466667)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_jjahn"]
+font = ExtResource("1_ntpom")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_kru7n"]
+font = ExtResource("1_ntpom")
+font_size = 48
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nu6nr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.0
+offset_top = -238.0
+offset_right = 379.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0038j")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -142.0
+offset_right = 208.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_jjahn")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 181.0
+offset_right = 573.0
+offset_bottom = 256.0
+text = "SCORE: 99999"
+label_settings = SubResource("LabelSettings_kru7n")
+
+[node name="RetryButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 47.0
+offset_right = 140.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY AGAIN"
+
+[node name="ExitButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 360.0
+offset_right = 519.0
+offset_bottom = 391.0
+text = "EXIT"
+
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/ExitButton" to="." method="_on_exit_button_pressed"]
