@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlkt7t2nkuw2e"]
+
+[ext_resource type="Script" path="res://pipe_spawner/pipes_spawner.gd" id="1_ajlxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syvew"]
+size = Vector2(25, 170.5)
+
+[node name="PipesSpawner" type="Node2D"]
+script = ExtResource("1_ajlxw")
+
+[node name="upper_pipe" type="Area2D" parent="."]
+position = Vector2(832, 176)
+
+[node name="lower_pipe" type="Area2D" parent="."]
+position = Vector2(7, 645)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
+autostart = true
+
+[node name="Counter" type="Area2D" parent="."]
+position = Vector2(31, 320)
+
+[node name="CounterCollider" type="CollisionShape2D" parent="Counter"]
+position = Vector2(1.5, 3.25)
+shape = SubResource("RectangleShape2D_syvew")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Counter" to="." method="_on_counter_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://babq3gsvhu1m3"]
+
+[ext_resource type="Texture2D" uid="uid://crtbaxex3m5c7" path="res://speedy_saucer_assets/ufoGreen.png" id="1_luv6x"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_rwvkj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g53dr"]
+radius = 45.5412
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_rwvkj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_luv6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_g53dr")
+
+[node name="Camera2D" type="Camera2D" parent="."]

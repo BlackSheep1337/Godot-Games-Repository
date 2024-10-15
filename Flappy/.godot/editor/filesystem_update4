@@ -1,0 +1,7 @@
+res://player/player.tscn
+res://level/font/colored_pixel_22.tres
+res://level/shaders/game_over_screen.gdshader
+res://level/level.tscn
+res://pipe_spawner/pipes_pair.tscn
+res://game_over_screen/game_over_screen.tscn
+res://pipe_spawner/pipe_spawner.tscn

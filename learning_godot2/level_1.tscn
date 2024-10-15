@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvvox8xypqqw5"]
+
+[ext_resource type="Texture2D" uid="uid://d27lpcx7rjwve" path="res://icon.svg" id="1_odk4e"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(463, 150)
+scale = Vector2(0.570313, 0.554688)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(625, 297)
+scale = Vector2(0.302185, 0.928528)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(632, 359)
+scale = Vector2(0.455562, 0.640052)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(725, 550)
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(415, 510)
+rotation = 0.556272
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(222, 312)
+rotation = 1.87404
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(1087, 351)
+rotation = 1.18598
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(915, 70)
+rotation = 0.305377
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(515, 15)
+rotation = -0.263198
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(710, 475)
+rotation = -0.0191372
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(1029, 445)
+rotation = -0.405801
+scale = Vector2(2.6421, 0.260972)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(783, 152)
+scale = Vector2(0.570313, 0.554688)
+texture = ExtResource("1_odk4e")
+offset = Vector2(-33.0001, 21)

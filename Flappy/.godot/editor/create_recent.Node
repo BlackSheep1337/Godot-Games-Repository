@@ -1,0 +1,15 @@
+VisibleOnScreenNotifier2D
+Camera2D
+CollisionShape2D
+CollisionPolygon2D
+Area2D
+Sprite2D
+Timer
+Node
+AnimationPlayer
+Label
+TextureButton
+VBoxContainer
+HBoxContainer
+BoxContainer
+NavigationObstacle2D

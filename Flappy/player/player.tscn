@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://bu6hq71d61o0v"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_w0v6g"]
+[ext_resource type="Texture2D" uid="uid://d0svddsb8kx10" path="res://player/Sprite-Flap-Bird.png" id="2_ik5r3"]
+[ext_resource type="Texture2D" uid="uid://dk58he0xwgkiu" path="res://player/Sprite-game_over.png" id="3_nkq23"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sytq1"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(0, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gya6a"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(24, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4svk2"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(48, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5afew"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(72, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bapi"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(96, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne4c8"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(120, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykhma"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(144, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbu5q"]
+atlas = ExtResource("2_ik5r3")
+region = Rect2(168, 0, 24, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rx0k1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sytq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gya6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4svk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5afew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bapi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne4c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykhma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbu5q")
+}],
+"loop": false,
+"name": &"flappy",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nkq23")
+}],
+"loop": true,
+"name": &"game_over",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qn4tt"]
+radius = 16.0
+height = 56.0
+
+[sub_resource type="Animation" id="Animation_uki53"]
+resource_name = "game_over"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cyq64"]
+_data = {
+"game_over": SubResource("Animation_uki53")
+}
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(-2, -2)
+script = ExtResource("1_w0v6g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -7)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_rx0k1")
+animation = &"flappy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qn4tt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cyq64")
+}

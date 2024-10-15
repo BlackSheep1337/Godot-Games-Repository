@@ -1,0 +1,9 @@
+res://pipe_spawner
+res://singletons/signal_manager
+res://singletons/game_data
+res://level
+res://game_over_screen
+res://player
+res://pipe
+res://parallax
+res://

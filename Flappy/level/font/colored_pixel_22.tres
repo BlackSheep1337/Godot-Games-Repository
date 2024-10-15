@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c1nkhfaesa8ct"]
+
+[ext_resource type="FontFile" uid="uid://b0rh2gh2wsdye" path="res://level/font/Pixeled.ttf" id="1_ivy4w"]
+
+[resource]
+font = ExtResource("1_ivy4w")
+font_size = 22
+font_color = Color(0.176471, 1, 0.964706, 1)
+outline_size = 8
+outline_color = Color(0.588235, 0, 0.792157, 1)
+shadow_size = 6
