@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu5e6b8gcrbgq"]
+
+[ext_resource type="Script" uid="uid://d0qq6weko1iq3" path="res://scripts/card.gd" id="1_6u4wf"]
+[ext_resource type="Texture2D" uid="uid://cwwcwk68j525" path="res://icon.svg" id="1_d81rb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d81rb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6u4wf"]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_6u4wf")
+
+[node name="BaseCardSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 39)
+scale = Vector2(1, 1.60938)
+texture = ExtResource("1_d81rb")
+
+[node name="CostDisplay" type="Node2D" parent="."]
+position = Vector2(48, -56)
+
+[node name="CostBaseSprite" type="Sprite2D" parent="CostDisplay"]
+position = Vector2(0, -1)
+scale = Vector2(0.25, 0.335938)
+texture = ExtResource("1_d81rb")
+
+[node name="CostLbl" type="Label" parent="CostDisplay"]
+offset_left = -5.0
+offset_top = -12.0
+offset_right = 32.0
+offset_bottom = 11.0
+text = "2"
+label_settings = SubResource("LabelSettings_d81rb")
+
+[node name="CardName" type="Node2D" parent="."]
+position = Vector2(-40, -57)
+
+[node name="NameLbl" type="Label" parent="CardName"]
+offset_right = 69.0
+offset_bottom = 23.0
+text = "Attack"
+label_settings = SubResource("LabelSettings_6u4wf")
+
+[node name="CardImage" type="Node2D" parent="."]
+
+[node name="CardImageSprite" type="Sprite2D" parent="CardImage"]
+modulate = Color(0.876882, 0.597731, 0.177991, 1)
+position = Vector2(5.96046e-08, 22)
+scale = Vector2(0.875, 0.484375)
+texture = ExtResource("1_d81rb")
+
+[node name="DescriptionLbl" type="Label" parent="."]
+offset_left = -41.0
+offset_top = 67.0
+offset_right = 41.0
+offset_bottom = 90.0
+text = "Attack + 1"
